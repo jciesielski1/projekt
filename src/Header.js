@@ -8,10 +8,16 @@ import Typography from "@mui/material/Typography";
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#f4bbd3" }}>
+      <AppBar
+        position="static"
+        sx={{
+          backgroundImage: "linear-gradient(to right, #38761d, #8fce00)",
+          color: "#fff",
+        }}
+      >
         <Toolbar>
           <img
-            src="hamburger.png" // Replace with your image path
+            src="hamburger.png"
             alt="Hamburger Icon"
             style={{
               display: { xs: "none", md: "flex" },
@@ -31,11 +37,11 @@ export default function ButtonAppBar() {
               RECIPE FINDER
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Find your own recipe!
+              Find your own recipe based on macronutrients!
             </Typography>
           </Box>
           <img
-            src="broccoli.png" // Replace with your image path
+            src="broccoli.png"
             alt="Broccoli Icon"
             style={{
               display: { xs: "none", md: "flex" },

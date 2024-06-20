@@ -1,71 +1,35 @@
-# Getting Started with Create React App
+# Wyszukiwarka Przepisów Kulinarnych
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikacja internetowa umożliwiająca wyszukiwanie przepisów kulinarnych przy użyciu zewnętrznego API. Stworzona przy użyciu create-react-app, napisana w React i wykorzystująca komponenty MUI.
 
-## Available Scripts
+### Narzedzia uzyte w projekcie
 
-In the project directory, you can run:
+Komponenty MUI: [MUI](https://mui.com/).
+Zewnetrzne API: [EDAMAM](https://www.edamam.com/).
+Projekt został stworzony przy uzyciu: [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+## Komponent Searchbar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Komponent Searchbar to funkcyjny komponent Reacta, który pozwala użytkownikom wyszukiwać przepisy za pomocą API Edamam. Renderuje pole tekstowe do wprowadzania danych oraz przycisk ikony wyszukiwania do inicjacji wyszukiwania.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# projekt
+**Funkcje**
+- Domyślne zapytanie wyszukiwania jest ustawione na "hamburger".
+- Pobiera dane przepisów z API Edamam na podstawie zapytania użytkownika.
+- Aktualizuje komponent nadrzędny za pomocą pobranych przepisów.
+**Właściwości**
+- _setRecipes_: Funkcja przekazana jako właściwość, która aktualizuje stan komponentu nadrzędnego za pomocą pobranych przepisów.
+**Zarządzanie stanem**
+- _query_: Zmienna stanu przechowująca bieżące zapytanie wyszukiwania. Zainicjowana wartością "hamburger".
+- _setQuery_: Funkcja do aktualizacji stanu query.
+**Pobieranie przepisów**
+- Funkcja _fetchRecipes_ to asynchroniczna funkcja, która pobiera przepisy z API Edamam na podstawie bieżącego stanu _query_. Używa ID API i klucza API przechowywanych w zmiennych środowiskowych *REACT_APP_API_ID* i *REACT_APP_API_KEY*.
+**Obsługa zdarzeń**
+- _handleChange_: Aktualizuje stan query za każdym razem, gdy wartość w polu tekstowym się zmienia.
+**Hook useEffect**
+- _useEffect_: Wywołuje _fetchRecipes_ za każdym razem, gdy stan _query_ się zmienia.
+**Renderowanie komponentu**
+Komponent _Searchbar_ zwraca pole tekstowe Material-UI (_TextField_) z następującymi właściwościami:
+- _label_: Ustawiony na "Search".
+- _onChange_: Funkcja _handleChange_ do aktualizacji stanu _query_.
+- _InputProps_: Dodaje element z ikoną wyszukiwania, który wywołuje funkcję _fetchRecipes_ po kliknięciu.
+- _fullWidth_: Sprawia, że pole tekstowe zajmuje całą szerokość kontenera.

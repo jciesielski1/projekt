@@ -8,7 +8,7 @@ export const Searchbar = ({ setRecipes }) => {
   const [query, setQuery] = useState("hamburger");
   async function fetchRecipes() {
     const response = await fetch(
-      `https://api.edamam.com/api/recipes/v2?q=${query}&type=public&app_id=c2e997aa&app_key=8770737d9f2b773a82584be82e3f95e8`,
+      `https://api.edamam.com/api/recipes/v2?q=${query}&type=public&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`,
     );
     const data = await response.json();
     setRecipes(data.hits);
@@ -26,7 +26,6 @@ export const Searchbar = ({ setRecipes }) => {
     <TextField
       label="Search"
       onChange={handleChange}
-      sx={{ padding: "10px" }}
       InputProps={{
         endAdornment: (
           <InputAdornment>
