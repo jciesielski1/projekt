@@ -39,7 +39,7 @@ Komponent RecipesList to funkcyjny komponent Reacta, który renderuje listę prz
 - styled: Do stylizacji komponentów (_StyledCard_).
 
 **Stylizacja**
-Komponent _StyledCard_ jest styled-component utworzonym za pomocą funkcji _styled_ z Material-UI, który ustawia wysokość karty na 100%.
+- Komponent _StyledCard_ jest styled-component utworzonym za pomocą funkcji _styled_ z Material-UI, który ustawia wysokość karty na 100%.
 
 **Renderowanie komponentu**
 
@@ -74,6 +74,7 @@ Komponent Searchbar to funkcyjny komponent Reacta, który pozwala użytkownikom 
 - _useEffect_: Wywołuje _fetchRecipes_ za każdym razem, gdy stan _query_ się zmienia.
 
 **Renderowanie komponentu**
+
 Komponent _Searchbar_ zwraca pole tekstowe Material-UI (_TextField_) z następującymi właściwościami:
 - _label_: Ustawiony na "Search".
 - _onChange_: Funkcja _handleChange_ do aktualizacji stanu _query_.
